@@ -1,0 +1,20 @@
+import java.util.List;
+
+public class Solution {
+    public static int birthdayCakeCandles(List<Integer> candles) {
+        int maxHeight = 0;
+        int count = 0;
+
+        for (int height : candles) {
+            if (height > maxHeight) {
+                // Found a new taller candle: reset height and restart count
+                maxHeight = height;
+                count = 1;
+            } else if (height == maxHeight) {
+                // Found another candle of the same maximum height
+                count++;
+            }
+        }
+        return count;
+    }
+}
